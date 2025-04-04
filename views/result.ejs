@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Submission Result</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header>
+    <h1>Thank You, <%= userData.username %>!</h1>
+    <p>Your registration was successful</p>
+  </header>
+
+  <div class="main-container">
+    <aside class="sidebar">
+      <div class="sidebar-content">
+        <h2>Next Steps</h2>
+        <p>Check your email for a confirmation message.</p>
+        
+        <h2>Your Account</h2>
+        <p>Username: <strong><%= userData.username %></strong></p>
+        <p>Email: <strong><%= userData.email %></strong></p>
+      </div>
+    </aside>
+
+    <main class="content-area">
+      <div class="result-card">
+        <h2>Your Details:</h2>
+        <p><strong>Email:</strong> <%= userData.email %></p>
+        <p><strong>Age:</strong> <%= userData.age %></p>
+      </div>
+
+      <h2>Community Members</h2>
+      <ul>
+        <% submissions.forEach((sub, index) => { %>
+          <li>
+            <span class="submission-number">#<%= index + 1 %></span>
+            <%= sub.username %> (<%= sub.email %>) - Age: <%= sub.age %>
+          </li>
+        <% }) %>
+      </ul>
+
+      <a href="/" class="back-link">← Back to Registration Form</a>
+    </main>
+  </div>
+</body>
+</html>
